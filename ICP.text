@@ -1,0 +1,44 @@
+//Motoko Giris
+//import 
+import Map "mo:base/HashMap";
+import Text "mo:base/Text";
+
+//import Nat "mo:base/Nat"
+//import.... "mo:base/..."
+
+// akili sozlesme
+
+actor {
+  type Name = Text;
+  type Phone = Text;
+
+  type Entry = {
+    desc: Text;
+    phone: Phone;
+  };
+
+  // degiskenler
+  // let-> imutable (degismez)
+  // var -> muteable(degistiriblir)
+  // const-> ...
+
+  let phoneBook = Map.HashMap<Name, Entry>(0, Text.equal, Text.hash);
+
+  // query =>sorgular
+  // update => gelistirme
+  // async() => paralelde yapiliyor
+
+  public func insert(name: Name, entry: Entry): async (){
+    phoneBook.put(name,entry);
+
+    //loop if when while
+
+  };
+
+  // ? ister string olsun ister integer yada float olsun 
+  
+  public query func lookup(name: Name): async ?Entry{
+    phoneBook.get(name)
+  };
+
+};
